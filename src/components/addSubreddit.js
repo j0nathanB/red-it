@@ -22,7 +22,7 @@ class AddSubreddit extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Subreddit<br />
+          <pre>Enter a subreddit</pre>
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
