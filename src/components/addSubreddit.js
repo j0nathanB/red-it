@@ -3,7 +3,9 @@ import React from 'react';
 class AddSubreddit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      value: ''
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,6 +17,9 @@ class AddSubreddit extends React.Component {
 
   handleSubmit(event) {
     this.props.parentFunc(this.state.value)
+    this.setState({
+      value: ''
+    })
     event.preventDefault();
   }
 
