@@ -20,8 +20,8 @@ class RemoveSubreddit extends React.Component {
         <div><pre>Included subreddits (click to remove):</pre></div>
         <div><ul>
           <pre>{this.props.added.map(
-            subs => {
-              return <li onClick={this.handleClick}>{subs}</li>
+            (subs,i) => {
+              return <li key={i} onClick={this.handleClick}>{subs}</li>
             }
             )}</pre>
         </ul></div>

@@ -22,7 +22,7 @@ const Feed = (props) => {
       flexDirection: "column",
     }}>
       { formattedBlob.map( (post,i) => (
-        <li key={i + post.post_date} style={{
+        <li key={i + post.created_utc} style={{
           display: "flex",
           justifyContent: "flex-start"
         }}>

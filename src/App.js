@@ -63,14 +63,16 @@ class App extends Component {
 
   removeSubreddit(selected) {
     let temp = this.state.feedBlob;
+    let tempSubs = this.state.subreddits;
 
-    console.log('asdas', temp.map(thing => thing))
-    
-    temp.filter(subreddit => subreddit[selected] !== `r/${selected}`);
-    this.setState({
-      feedBlob: temp
-    })
-    // If remove last entry, then add News
+     this.setState({
+       feedBlob: temp.filter(subreddit => subreddit.name !== selected),
+       subreddits: tempSubs.filter(subreddit => subreddit !== selected)
+     });
+
+     if (this.state.subreddits.length === 1){
+       this.updateFeed();
+     }
   }
 
   componentDidMount() {
@@ -86,6 +88,7 @@ class App extends Component {
         }}>
           <pre><h1 style={{color:"red", fontSize:50}}>it</h1></pre>
           <AddSubreddit parentFunc={this.addSubreddit}/>
+          <br />
           <div style={{
             flexDirection: "row",
             justifyContent: "space-between"
